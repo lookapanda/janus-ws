@@ -11,7 +11,7 @@
   "author": "lookapanda <sn@hitbox.tv> (https://github.com/lookapanda)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lookapanda/janus-ws.git"
+    "url": "git@github.com:lookapanda/janus-ws.git"
   },
   "bugs": {
     "url": "https://github.com/lookapanda/janus-ws/issues"
@@ -21,11 +21,13 @@
     "clean": "rimraf dist",
     "prebuild": "yarn run clean",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
-    "start": "rollup -c rollup.config.ts -w",
-    "semantic-release": "semantic-release"
+    "start": "rollup -c rollup.config.ts -w"
   },
   "release": {
     "branch": "master"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -85,6 +87,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@joseph184/rollup-plugin-node-builtins": "^2.1.4",
     "@types/debug": "^4.1.5",
     "@types/node": "^12.11.6",
     "@types/uuid": "^3.4.5",
@@ -100,7 +103,6 @@
     "rollup": "^1.25.2",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
-    "@joseph184/rollup-plugin-node-builtins": "^2.1.4",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.24.3",
