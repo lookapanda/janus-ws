@@ -1,6 +1,6 @@
 {
   "name": "@lookapanda/janus-ws",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/janus-ws.umd.js",
   "module": "dist/janus-ws.es.js",
