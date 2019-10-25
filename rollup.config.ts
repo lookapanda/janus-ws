@@ -3,17 +3,16 @@ import commonjs from 'rollup-plugin-commonjs';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
+import builtins from '@joseph184/rollup-plugin-node-builtins';
 
 const pkg = require('./package.json');
 
-const libraryName = 'janus-ws';
-
 export default {
-    input: `src/${libraryName}.ts`,
+    input: `src/index.ts`,
     output: [
         {
             file: pkg.main,
-            name: 'janus-ws',
+            name: 'janusWs',
             format: 'umd',
             sourcemap: true,
         },
@@ -34,9 +33,12 @@ export default {
         // Allow node_modules resolution, so you can use 'external' to control
         // which external modules to include in the bundle
         // https://github.com/rollup/rollup-plugin-node-resolve#usage
-        resolve(),
+        resolve({
+            preferBuiltins: true,
+        }),
 
         // Resolve source maps to the original source
         sourceMaps(),
+        builtins(),
     ],
 };
