@@ -21,6 +21,11 @@ jobs:
         with:
           cmd: install
 
+      - name: Build
+        uses: borales/actions-yarn@v2.0.1
+        with:
+          cmd: run build
+
       - name: Setup Node.js with GitHub Package Registry
         uses: actions/setup-node@v1
         with:
@@ -55,7 +60,6 @@ jobs:
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
-            @semantic-release/exec
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

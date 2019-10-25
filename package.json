@@ -1,6 +1,6 @@
 {
   "name": "@lookapanda/janus-ws",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/janus-ws.umd.js",
   "module": "dist/janus-ws.es.js",
@@ -24,11 +24,7 @@
     "start": "rollup -c rollup.config.ts -w"
   },
   "release": {
-    "branch": "master",
-    "exec": true,
-    "execOptions": {
-      "publishCmd": "yarn run build"
-    }
+    "branch": "master"
   },
   "publishConfig": {
     "access": "public"
