@@ -24,8 +24,7 @@
     "semantic-release": "semantic-release"
   },
   "release": {
-    "branch": "master",
-    "dryRun": true
+    "branch": "master"
   },
   "publishConfig": {
     "access": "public"
