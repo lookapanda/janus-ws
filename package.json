@@ -1,6 +1,6 @@
 {
-  "name": "janus-ws",
-  "version": "1.0.6",
+  "name": "@lookapanda/janus-ws",
+  "version": "1.0.7",
   "license": "MIT",
   "author": "lookapanda <sn@hitbox.tv> (https://github.com/lookapanda)",
   "repository": {
