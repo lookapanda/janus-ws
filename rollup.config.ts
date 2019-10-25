@@ -4,6 +4,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
 import builtins from '@joseph184/rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
 
 const pkg = require('./package.json');
 
@@ -40,5 +41,6 @@ export default {
         // Resolve source maps to the original source
         sourceMaps(),
         builtins(),
+        globals(),
     ],
 };
