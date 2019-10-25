@@ -24,7 +24,11 @@
     "start": "rollup -c rollup.config.ts -w"
   },
   "release": {
-    "branch": "master"
+    "branch": "master",
+    "exec": true,
+    "execOptions": {
+      "publishCmd": "yarn run build"
+    }
   },
   "publishConfig": {
     "access": "public"
