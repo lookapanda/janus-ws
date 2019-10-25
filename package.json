@@ -20,7 +20,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
+    "lint": "eslint src/**/*.ts",
     "semantic-release": "semantic-release"
   },
   "release": {
@@ -42,12 +42,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
@@ -56,7 +50,13 @@
     "@types/debug": "^4.1.5",
     "@types/jest": "^24.0.19",
     "@types/uuid": "^3.4.5",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.9",
+    "prettier": "^1.18.2",
     "semantic-release": "^15.13.27",
     "tsdx": "^0.10.5",
     "tslib": "^1.10.0",
@@ -65,5 +65,43 @@
   "dependencies": {
     "debug": "^4.1.1",
     "uuid": "^3.3.3"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "semi": true,
+    "parser": "typescript"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "@typescript-eslint/interface-name-prefix": 0,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/explicit-member-accessibility": 0,
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/camelcase": 0,
+      "@typescript-eslint/no-parameter-properties": 0,
+      "@typescript-eslint/no-inferrable-types": [
+        1,
+        {
+          "ignoreParameters": true,
+          "ignoreProperties": true
+        }
+      ],
+      "@typescript-eslint/no-non-null-assertion": 0
+    }
   }
 }
