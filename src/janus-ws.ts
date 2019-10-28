@@ -153,6 +153,10 @@ export class JanusWs<
         }
     }
 
+    getPluginHandle(id: number) {
+        return this.pluginHandles.get(id);
+    }
+
     async addPlugin<T extends IJanusWsPlugin<TSocket>>(plugin: T) {
         const request = plugin.getAttachPayload();
         const json = await this.transaction<
