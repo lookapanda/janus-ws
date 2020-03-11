@@ -39,7 +39,7 @@ export interface IJanusWsPlugin<TSocket extends WebSocket = WebSocket> {
     oncleanup?(): void;
     detached?(): void;
     hangup(): void;
-    slowLink(uplink: boolean, nacks: number): void;
+    slowLink(uplink: boolean, lost: number): void;
     mediaState(medium: any, on: any): void;
     webrtcState(isReady: boolean, cause?: string): void;
     detach(): void;
@@ -109,8 +109,8 @@ export abstract class JanusWsPlugin<TSocket extends WebSocket = WebSocket>
         this.emit('hangup');
     }
 
-    slowLink(uplink: boolean, nacks: number) {
-        this.emit('slowlink', uplink, nacks);
+    slowLink(uplink: boolean, lost: number) {
+        this.emit('slowlink', uplink, lost);
     }
 
     mediaState(medium: any, on: any) {

@@ -541,14 +541,11 @@ export class JanusWs<
                     break;
                 }
                 case 'slowlink': {
-                    const {
-                        uplink,
-                        nacks,
-                    } = message as IJanusWsSlowlinkMessage;
+                    const { uplink, lost } = message as IJanusWsSlowlinkMessage;
                     debug(
-                        'Got a slowlink event on session %i (NACKs: %i)',
+                        'Got a slowlink event on session %i (Lost packages: %i)',
                         this.sessionId,
-                        nacks
+                        lost
                     );
 
                     const sender = data.sender;
@@ -565,7 +562,7 @@ export class JanusWs<
                         );
                         return;
                     }
-                    pluginHandle.slowLink(uplink, nacks);
+                    pluginHandle.slowLink(uplink, lost);
                     break;
                 }
                 case 'error': {

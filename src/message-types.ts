@@ -59,7 +59,8 @@ export interface IJanusWsEventMessage<T> extends IJanusWsBaseMessage {
 export interface IJanusWsSlowlinkMessage extends IJanusWsBaseMessage {
     janus: 'slowlink';
     uplink: boolean;
-    nacks: number;
+    nacks?: number;
+    lost: number;
 }
 
 export interface IJanusWsHangupMessage extends IJanusWsBaseMessage {
